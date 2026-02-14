@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>greenclasify</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">greenclasify</div>
+        <nav class="nav">
+          <button class="nav-link active" data-page="home">Home</button>
+          <button class="nav-link" data-page="predict">Predict</button>
+          <button class="nav-link" data-page="about">About</button>
+        </nav>
+        <div class="sidebar-footer">v1.0</div>
+      </aside>
+
+      <main class="main">
+        <header class="main-header">
+          <h1 id="pageTitle">Home</h1>
+        </header>
+
+        <section id="home" class="page">
+          <div class="card">
+            <h2>Welcome to greenclasify</h2>
+            <p>Identify vegetables from photos and see quick nutritional info.</p>
+          </div>
+
+          <div class="card grid">
+            <div>
+              <h3>About the App</h3>
+              <p>greenclasify uses a MobileNetV2-based PyTorch model to classify 15 vegetables.</p>
+            </div>
+            <div>
+              <h3>Dataset</h3>
+              <p>Images were collected and split into train/validation/test folders.</p>
+            </div>
+            <div>
+              <h3>Sample Photos</h3>
+              <div class="photo-row">
+                <img src="https://images.unsplash.com/photo-1546069901-eacef0df6022?w=600&auto=format&fit=crop&q=60" alt="sample">
+                <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=600&auto=format&fit=crop&q=60" alt="sample">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop&q=60" alt="sample">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="predict" class="page" hidden>
+          <div class="card">
+            <label class="file-label">
+              <input id="fileInput" type="file" accept="image/*">
+              <span>Select Image</span>
+            </label>
+            <div id="previewWrap" class="preview">
+              <img id="preview" src="" alt="preview" hidden>
+            </div>
+            <button id="predictBtn" class="btn" disabled>Predict</button>
+          </div>
+
+          <div class="card result" id="resultCard" hidden>
+            <h2 id="predictionTitle">Prediction</h2>
+            <div id="topPrediction" class="top-prediction"></div>
+            <canvas id="chart" height="120"></canvas>
+            <div id="nutrition" class="nutrition"></div>
+          </div>
+        </section>
+
+        <section id="about" class="page" hidden>
+          <div class="card">
+            <h2>About greenclasify</h2>
+            <p>This tool helps users quickly recognize common vegetables and learn basic nutrition.</p>
+            <h3>Contact</h3>
+            <p>Project repository and details are available in the project folder.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
